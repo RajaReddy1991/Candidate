@@ -1,0 +1,47 @@
+<form [formGroup]="customerForm" (submit)="createCustomer()">
+<div class="container">
+
+    
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text"  class="form-control" id="title" formControlName="title">
+            <div class="invalid-feedback">
+                Please provide a valid title
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div class="invalid-feedback">
+                Please provide a valid Email address
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="region" class="form-label">Region</label>
+            <select formControlName="region" id="region" class="form-select" >
+                <option [ngValue]="r" *ngFor="let r of regionList$ | async">{{r.region}}</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select the Region
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <select formControlName="country" id="country" class="form-select" >
+                <option [value]="c" *ngFor="let c of customerForm.get('region')?.value?.countries">{{c}}</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select the Country
+            </div>
+        </div>
+    
+
+  <div class="row">
+      <div class="col-sm-12">
+          <div class="text-center">
+              <button type="submit" class="btn btn-primary">Create Customer</button>
+          </div>
+      </div>
+  </div>
+</div>
+</form>

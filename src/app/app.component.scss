@@ -1,0 +1,22 @@
+.container {
+    margin-top: 2em;
+
+    .table-header {
+        align-items: end;
+        display: flex;
+    }
+    
+    .action {
+        display: flex;
+        flex-direction: column;
+
+        button {
+            margin: 2px;
+        }
+    }
+
+    .pin-image {
+        max-width: 200px;
+    }
+}
+
